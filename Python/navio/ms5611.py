@@ -165,11 +165,11 @@ class MS5611:
 			T2 = 0
 			OFF2 = 0
 			SENS2 = 0
-		elif (self.TEMP < 2000):
+		else:
 			T2 = dT * dT / 2**31
 			OFF2 = 5 * ((self.TEMP - 2000) ** 2) / 2
 			SENS2 = OFF2 / 2
-		elif (self.TEMP < -1500):
+		if (self.TEMP < -1500):
 			OFF2 = OFF2 + 7 * ((self.TEMP + 1500) ** 2)
 			SENS2 = SENS2 + 11 * (self.TEMP + 1500) ** 2 / 2
 
